@@ -16,6 +16,10 @@
       {
         "command": "extension.gentest",
         "title": "Generate test"
+      },
+      {
+        "command": "extension.openSettings",
+        "title": "Gentest: Open OpenAI API Key Settings"
       }
     ],
     "menus": {
@@ -25,12 +29,22 @@
           "when": "editorTextFocus"
         }
       ],
-      "commandPalette": [
+      "explorer/context": [
         {
           "command": "extension.gentest",
-          "when": "editorLangId == markdown"
+          "when": "resourceFilename =~ /\\.(ts|tsx|js|jsx)$/"
         }
       ]
+    },
+    "configuration": {
+      "title": "OpenAI key Test Generator",
+      "properties": {
+        "openaiTestGenerator.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API Key for OpenAI"
+        }
+      }
     }
   },
   "scripts": {
